@@ -41,38 +41,12 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-
-
-
-
 app.UseCustomExceptionHandler();
 app.UseRouting();
-//var assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-//string wrongpath = "\\bin\\Debug\\net0.6\\";
-//assemblyDirectory = assemblyDirectory.Substring(0, assemblyDirectory.Length - wrongpath.Length+1);
-//var assetDirectory = Path.Combine(assemblyDirectory, "Static");
-
-//// use it
-//app.UseStaticFiles(new StaticFileOptions
-//{
-//    //FileProvider = new PhysicalFileProvider(
-//    //       Path.Combine(builder.Environment.ContentRootPath, "Static")),
-//    //RequestPath = "/Static"
-//    FileProvider = new PhysicalFileProvider(assetDirectory),
-//    RequestPath = "/Static"
-//});
-//D:\ProjVis\Portfolio\Testovoe\Notes.Backend\Notes.WebApi\Static\
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Note}/{action=GetAll}/{id?}");
-
-
-//app.UseEndpoints(endpoints =>
-//{
-//    endpoints.MapDefaultControllerRoute();
-//});
-//app.MapGet("/", () => "Hello World!");
 
 app.Run();

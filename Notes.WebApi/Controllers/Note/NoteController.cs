@@ -11,7 +11,7 @@ using Notes.Application.Notes.Commands.DeleteCommand;
 
 namespace Notes.WebApi.Controllers.Note
 {
-    // [Route("api/note")]
+    
     public class NoteController : Controller
     {
         private IMediator _mediator;
@@ -24,7 +24,7 @@ namespace Notes.WebApi.Controllers.Note
             mapper = _mapper;
         }
 
-        //[Route("~/NoteController/GetAll")]
+        
         [HttpGet]
         public async Task<ActionResult<NoteListVm>> GetAll()
         {
@@ -36,7 +36,7 @@ namespace Notes.WebApi.Controllers.Note
 
 
 
-        //[Route("~/NoteController/Get/{id}")]
+        
         [HttpGet]
         public async Task<ActionResult<NoteDetailsVm>> Get(Guid id)
         {
@@ -48,7 +48,7 @@ namespace Notes.WebApi.Controllers.Note
             var vm = await Mediator.Send(query);
             return View(vm);
         }
-        //[Route("~/NoteController/Create")]
+       
         [HttpGet]
         public async Task<ActionResult> Create()
         {
@@ -56,7 +56,7 @@ namespace Notes.WebApi.Controllers.Note
 
         }
 
-        //[Route("~/NoteController/Create")]
+        
         [HttpPost]
         public async Task<ActionResult<Guid>> Create(CreateNoteDto createNoteDto)
         {
@@ -72,7 +72,7 @@ namespace Notes.WebApi.Controllers.Note
             var upd = new UpdateNoteDto { Id = id };
             return View(upd);
         }
-        //[Route("~/api/Update/{id}")]
+       
         [HttpPost]
         public async Task<ActionResult> Update(UpdateNoteDto updateNoteDto)
         {
@@ -81,8 +81,7 @@ namespace Notes.WebApi.Controllers.Note
             await Mediator.Send(command);
             return RedirectToAction("Get", new { id = command.Id });
         }
-        //[Route("~/NoteController/Delete/{id}")]
-        //[HttpDelete]
+       
         public async Task<ActionResult> Delete(Guid id)
         {
             var command = new DeleteNoteCommand
