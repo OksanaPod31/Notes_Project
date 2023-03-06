@@ -12,6 +12,6 @@ namespace Notes.Application.Notes.Commands.CreateNote
        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
-        public string? PathImage { get; set; }
+        
     }
 }

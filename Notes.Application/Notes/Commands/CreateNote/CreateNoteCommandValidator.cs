@@ -11,7 +11,7 @@ namespace Notes.Application.Notes.Commands.CreateNote
     {
         public CreateNoteCommandValidator()
         {
-            RuleFor(createNoteCommand => createNoteCommand.Title).NotEmpty().MaximumLength(250);
+            RuleFor(createNoteCommand => createNoteCommand.Title).NotEmpty().MaximumLength(500);
            
         }
     }

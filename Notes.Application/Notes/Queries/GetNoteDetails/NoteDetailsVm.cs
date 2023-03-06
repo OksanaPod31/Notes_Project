@@ -16,7 +16,7 @@ namespace Notes.Application.Notes.Queries.GetNoteDetails
         public string Details { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? EditDate { get; set; }
-        public string? PathImage { get; set; }
+       
 
         public void Mapping(Profile profile)
         {
@@ -30,9 +30,8 @@ namespace Notes.Application.Notes.Queries.GetNoteDetails
                 .ForMember(noteVm => noteVm.CreationDate,
                     opt => opt.MapFrom(note => note.CreationDate))
                 .ForMember(noteVm => noteVm.EditDate,
-                    opt => opt.MapFrom(note => note.EditDate))
-                .ForMember(noteVm => noteVm.PathImage, 
-                opt => opt.MapFrom(note => note.PathImage));
+                    opt => opt.MapFrom(note => note.EditDate));
+                
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Notes.Application.Notes.Commands.UpdateNote
                 throw new NotFoundException(nameof(Notes), request.Id);
             }
             
-            entity.PathImage = request.PathImage;
+           
             entity.Details = request.Details;
             entity.Title = request.Title;
             entity.EditDate = DateTime.Now;

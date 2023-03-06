@@ -13,7 +13,8 @@ namespace Notes.Application.Notes.Queries.GetNoteList
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public string? PathImage { get; set; }
+        public DateTime CreatedDate { get; set; }
+       
 
         public void Mapping(Profile profile)
         {
@@ -21,8 +22,8 @@ namespace Notes.Application.Notes.Queries.GetNoteList
                 opt => opt.MapFrom(node => node.Id))
                 .ForMember(noteDto => noteDto.Title,
                 opt => opt.MapFrom(node => node.Title))
-                .ForMember(noteDto => noteDto.PathImage,
-                opt => opt.MapFrom(node => node.PathImage));
+                .ForMember(noteDto => noteDto.CreatedDate,
+                opt => opt.MapFrom(node => node.CreationDate));
         }
     }
 }

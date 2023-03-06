@@ -6,7 +6,7 @@ namespace Notes.WebApi.Models
 {
     public class UpdateNoteDto : IMapWith<UpdateNoteCommand> 
     {
-        
+       public Guid Id { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
 
@@ -14,7 +14,9 @@ namespace Notes.WebApi.Models
         {
             profile.CreateMap<UpdateNoteDto, UpdateNoteCommand>()
                 .ForMember(noteCommand => noteCommand.Title, opt => opt.MapFrom(updateDto => updateDto.Title))
-                .ForMember(noteCommand => noteCommand.Details, opt => opt.MapFrom(updateDto => updateDto.Details));
+                .ForMember(noteCommand => noteCommand.Details, opt => opt.MapFrom(updateDto => updateDto.Details))
+                .ForMember(noteCommand => noteCommand.Id, opt => opt.MapFrom(updateDto => updateDto.Id));
+               
         }
     }
 }

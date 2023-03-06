@@ -1,0 +1,133 @@
+﻿@using Notes.Application.Notes.Queries.GetNoteDetails;
+@model NoteDetailsVm;
+
+<div class="container">
+    <h2>@Model.Title</h2>
+    <div class="formItems">
+        <div class="Blocked">
+            <p style="font-size: 24px;">
+               @Model.Details
+            </p>
+            <p style="font-size: 15px; margin-bottom: 2px">@Model.CreationDate - дата создания</p>
+            @if(Model.EditDate != null){
+                <p style="font-size: 15px; margin: 2px">@Model.EditDate - дата последнего редактирования</p>
+            }
+        </div>
+    </div>
+</div>
+<div class="ItemBlock BlockButt">
+    <div>
+        <a asp-action="GetAll"> <button class="cancelbth">К списку</button></a>
+    </div>
+    <div>
+        <a asp-action="Update" asp-route-id="@Model.Id"><button class="createbtn">Изменить</button></a>
+    </div>
+    <div>
+        <a asp-action="Delete" asp-route-id="@Model.Id"><button class="delbtn">Удалить</button></a>
+    </div>
+</div>
+
+<style>
+    
+.container{
+    
+    background-color: #242424;
+    border: none;
+    border-radius: 30px;
+    width: 45%;
+    min-height: 30%;
+    margin: 50px auto;
+    font-family: TTtravelsRegular;
+}
+.container h2{
+    color: white;
+    margin-left: 30px;
+    padding-top: 20px;
+}
+.container img{
+    width: 300px;
+    height: 200px;
+    margin-bottom: 40px;
+}
+.container p{
+    margin-right: 10px;
+}
+.formItems{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    
+    margin-left: 30px;
+    margin-top: 50px;
+    color: white;
+    font-weight: 200;
+}
+.Item label, input{
+    display: block;
+}
+.Item{
+    margin-bottom: 40px;
+    
+}
+
+.Item:last-child{
+    width: 190px;
+}
+input {
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+}
+.ItemBlock input, textarea, select{
+    display: block;
+    resize: vertical;
+}
+.ItemBlock{
+    margin-bottom: 40px;
+}
+textarea{
+    background-color: #5F5F5F;
+    border-radius: 6px;
+    width: 200px;
+    height: 50px;
+}
+select{
+    background-color: #5F5F5F;
+    color: black;
+    height: 30px;
+    border-radius: 6px;
+}
+.BlockButt{
+    margin: 10px 37%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.BlockButt button{
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 13px;
+    border: none;
+    color: white;
+}
+.createbtn{
+    background-color: #9F2525;
+}
+.delbtn{
+    background-color: #9F2525;
+}
+.cancelbth{
+    background-color: #5F5F5F;
+}
+.cancelbth:hover{
+    box-shadow:0 0 20px #5F5F5F;
+}
+.createbtn:hover{
+    box-shadow:0 0 20px #9F2525;
+}
+.delbtn:hover{
+    box-shadow:0 0 20px #9F2525;
+}
+</style>

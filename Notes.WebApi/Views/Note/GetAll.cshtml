@@ -1,0 +1,146 @@
+﻿@using Notes.Application.Notes.Queries.GetNoteList;
+@model NoteListVm;
+
+    <h2>ВАШИ ЗАМЕТКИ</h2>
+<div class="global_container">
+    @foreach (var note in Model.Notes)
+    {
+        
+        <div class="wrapper">
+            <a asp-action="Get" asp-route-id="@note.Id">
+                <div class="container">
+                    <div class="bottom">
+                        <div class="left">
+                            <div class="details">
+                                <h4>@note.Title</h4>
+                                <p>@note.CreatedDate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    
+    }
+</div>
+<a asp-action="Create"><button>Добавить заметку</button></a>
+
+
+<style>
+    html, body {
+        font-family: sans-serif;
+        padding: 25px;
+    }
+
+    .global_container {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    button {
+        margin: 0 43%;
+        background-color: #ce1919;
+        width: 200px;
+        height: 50px;
+        color: white;
+        font-size: 15px;
+        border-radius: 30px;
+        border: none;
+    }
+
+    .wrapper {
+        width: 300px;
+        
+        background: white;
+        margin: 20px 20px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 0;
+        transform: scale(0.95);
+        transition: box-shadow 0.5s, transform 0.5s;
+    }
+
+    .container {
+        width: 100%;
+       
+    }
+
+    .top {
+        height: 80%;
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .bottom {
+        width: 200%;
+        
+        transition: transform 0.5s;
+    }
+
+    
+
+    p {
+        font-size: 10px;
+    }
+
+    .left {
+        height: 100%;
+        width: 50%;
+        background: #f4f4f4;
+        position: relative;
+        float: left;
+    }
+
+    .details {
+        padding: 20px;
+        float: left;
+        width: calc(70% - 40px);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 50px;
+        align-items: baseline;
+    }
+
+    .buy {
+        float: right;
+        width: calc(30% - 2px);
+        height: 100%;
+        background: #f1f1f1;
+        border-left: solid thin rgba(0,0,0,0.1);
+    }
+
+    .right {
+        width: 50%;
+        background: #A6CDDE;
+        color: white;
+        float: right;
+        height: 200%;
+        overflow: hidden;
+    }
+
+    .done {
+        width: calc(30% - 2px);
+        float: left;
+        transition: transform 0.5s;
+        border-right: solid thin rgba(255,255,255,0.3);
+        height: 50%;
+    }
+
+    .remove {
+        width: calc(30% - 1px);
+        clear: both;
+        border-right: solid thin rgba(255,255,255,0.3);
+        height: 50%;
+        background: #BC3B59;
+        transition: transform 0.5s;
+    }
+</style>

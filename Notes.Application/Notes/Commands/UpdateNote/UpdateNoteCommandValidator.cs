@@ -11,7 +11,7 @@ namespace Notes.Application.Notes.Commands.UpdateNote
     {
         public UpdateNoteCommandValidator()
         {
-            RuleFor(updatenoteCommand => updatenoteCommand.Title).NotEmpty().MaximumLength(250);
+            RuleFor(updatenoteCommand => updatenoteCommand.Title).NotEmpty().MaximumLength(500);
             RuleFor(updateNoteCommand => updateNoteCommand.Id).NotEqual(Guid.Empty);
 
         }

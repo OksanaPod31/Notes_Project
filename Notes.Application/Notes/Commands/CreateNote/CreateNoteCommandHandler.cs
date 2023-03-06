@@ -21,7 +21,7 @@ namespace Notes.Application.Notes.Commands.CreateNote
         {
             var note = new Note
             {
-               PathImage = request.PathImage,
+               
                 Title = request.Title,
                 Details = request.Details,
                 Id = Guid.NewGuid(),

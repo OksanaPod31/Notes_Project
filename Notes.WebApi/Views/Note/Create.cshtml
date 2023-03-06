@@ -1,0 +1,125 @@
+﻿@using Notes.WebApi.Models;
+@model CreateNoteDto;
+<div class="container">
+<form method="POST" asp-controller="Note" asp-action="Create" enctype="multipart/form-data">
+    <h2>Добавить новую заметку</h2>
+    <div class="formItems">
+        <div class="Inlines">
+            <div class="Item">
+                <label>Название</label>
+                <input asp-for="Title" type="text" />
+            </div>
+            <div class="Item">
+                <label>Описание</label>
+                    <textarea asp-for="Details"></textarea>
+            </div>
+        </div>
+
+        <div class="Blocked">
+            <div class="ItemBlock BlockButt">
+              
+                <div>
+                        <button class="createbtn"><input type="submit" /></button>
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <a asp-action="GetAll"><button class="cancelbth">Отмена</button></a>
+<div>
+
+<style>
+   
+.container{
+    
+    background-color: #242424;
+    border: none;
+    border-radius: 30px;
+    width: 45%;
+    min-height: 30%;
+    margin: 50px auto;
+    font-family: TTtravelsRegular;
+}
+.container h2{
+    color: white;
+    margin-left: 30px;
+    padding-top: 20px;
+}
+.formItems{
+    
+    
+    margin-left: 30px;
+    margin-top: 50px;
+    color: white;
+    font-weight: 200;
+}
+.Item label, input{
+    display: block;
+}
+.Item{
+    margin-bottom: 40px;
+    
+}
+
+.Item:last-child{
+    width: 190px;
+}
+input {
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+                text-decoration: none;
+}
+.ItemBlock input, textarea, select{
+    display: block;
+    resize: vertical;
+}
+.ItemBlock{
+    margin-bottom: 40px;
+}
+textarea{
+    background-color: #5F5F5F;
+    border-radius: 6px;
+    width: 637px;
+    height: 223px;
+}
+select{
+    background-color: #5F5F5F;
+    color: black;
+    height: 30px;
+    border-radius: 6px;
+}
+.BlockButt{
+    
+}
+.BlockButt button{
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 13px;
+    border: none;
+    color: white;
+}
+
+.createbtn{
+    background-color: #9F2525;
+    
+}
+.cancelbth{
+                padding: 10px 30px;
+                border-radius: 20px;
+                font-size: 13px;
+                border: none;
+                color: white;
+                margin: 20px;
+    background-color: #5F5F5F;
+}
+.cancelbth:hover{
+    box-shadow:0 0 20px #5F5F5F;
+}
+.createbtn:hover{
+    box-shadow:0 0 20px #9F2525;
+}
+</style>
